@@ -1,0 +1,63 @@
+//条件分岐＋ループ
+//問題
+; 整数 N が与えられるので、
+; 1〜N の中で “3の倍数の時だけ Fizz”、
+; 5の倍数の時だけ Buzz、
+; 両方の倍数のときは FizzBuzz、
+; それ以外は数字をそのまま出力してください。”
+
+; FizzBuzz問題 はプログラミングの基本的な練習問題としてよく使われます。
+; 出力例：(N = 15 の場合)
+; 1
+; 2
+; Fizz
+; 4
+; Buzz
+; Fizz
+; 7
+; 8
+; Fizz
+; Buzz
+; 11
+; Fizz
+; 13
+; 14
+; FizzBuzz
+
+//私の解答
+for (let i = 1; i <= N; i++){
+	if (i % 3 === 0 && i % 5 === 0){
+		console.log('FizzBuzz');
+		if (i % 5 === 0){
+			console.log('Buzz');
+			if (i % 3 === 0){
+				console.log('Fizz');
+			}
+		}
+	}
+	console.log(i);
+}
+
+//模範解答
+for (let i = 1; i <= N; i++) {
+    if (i % 15 === 0) {
+        console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+        console.log("Fizz");
+    } else if (i % 5 === 0) {
+        console.log("Buzz");
+    } else {
+        console.log(i);
+    }
+}
+
+//私の解答の問題点
+ 問題点1：FizzBuzz の中に Buzz と Fizz を入れてしまっている。
+ 問題点2：最後に必ず数字を出力してしまう。
+ -> console.log(i) が if の外にあるので、
+Fizz や Buzz のときでも数字が重複して出てしまう。
+//模範解答のポイント
+ 1.FIZZBUZZ（3 & 5）の方が条件が厳しいので 最初に判定しないといけない。
+ 2.FizzBuzz の時に Fizz や Buzz が出力されるとダブってしまう。
+ 3.Fizz、Buzz、FizzBuzz のどれかが 1 回しか出ないようにする.
+ 

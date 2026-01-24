@@ -1,0 +1,39 @@
+//新しい配列の作り方（push）＋filter処理の基礎
+//問題①
+配列 numbers の中にある “偶数だけ” を新しい配列として作り、出力してください。
+使用する配列：
+const numbers = [3, 9, 2, 7, 5, 8, 10, 1];
+出力したい配列：
+[2, 8, 10]
+
+//解答
+const numbers = [3, 9, 2, 7, 5, 8, 10, 1];
+const evens = [];
+for (let i = 0; i < numbers.length; i++) {
+	if (numbers[i] % 2 === 0) {
+    		evens.push(numbers[i]);
+	}
+}
+console.log(evens);
+
+//文字列操作の基礎
+//問題②
+与えられた文字列 str を逆順にして出力してください。
+使用する文字列：
+const str = "hello";
+期待する出力：
+"olleh"
+
+//解答
+let reversed = '';
+const str = "hello";
+for (let i = str.length - 1; i >=  0; i--){
+    reversed += str[i];
+}
+console.log(reversed);
+
+//回答のコツ
+//ポイント1: 末尾からスタートするループ
+“str.length - 1” を使用し、 文字列の最後のインデックスからスタートします。
+//ポイント2: “逆方向に i--” を使用し、i をデクリメント（-1 ずつ減らす）していきます。
+//ポイント3: “+=” で文字を連結する

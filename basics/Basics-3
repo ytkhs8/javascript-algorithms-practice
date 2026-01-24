@@ -1,0 +1,50 @@
+//配列操作
+//問題①
+配列として次の numbers を使用します：
+const numbers = [3, 9, 2, 7, 5];
+【やること】
+この配列の中で
+一番大きい数（最大値）を求めて出力してください。
+
+例：
+numbers = [3,9,2,7,5]
+→ 出力は 9
+
+//私の解答
+const numbers = [3, 9, 2, 7, 5];
+let max = numbers[0];
+for  (let i = numbers[0]; i <= numbers.length; i++){
+	if (numbers[i] >= max){
+		max = numbers[i];
+	}
+}
+console.log(max);
+
+//模範解答
+const numbers = [3, 9, 2, 7, 5];
+let max = numbers[0];
+
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > max) {
+        max = numbers[i];
+    }
+}
+
+console.log(max);
+
+//私の回答の問題点
+　問題点1：ここでの i は index（添字） にすべきなのですが、
+今 i = numbers[0] になっていて、
+
+numbers[0] = 3
+
+つまり…
+	•	i = 3 からスタート
+	•	i = 4
+	•	i = 5 …となる
+
+すると numbers[5] のような 存在しない要素 を見に行くので、
+undefined >= max を評価しようとして止まってしまう。
+ -> for ループの初期化部分は i = 0 とするのが基本。
+ for (let i = 0; i < numbers.length; i++) {
+ 
