@@ -1,0 +1,29 @@
+//選択ソート
+//問題
+//配列として次の nums を使用します：
+const nums = [7, 2, 9, 1, 5];
+//期待される出力：
+[1, 2, 5, 7, 9]
+
+//解答のヒント
+//① minIndex を「とりあえず i」にしておく
+//② 右側を見て「もっと小さいのがあったら minIndex を更新」
+//③ 外側ループの最後で nums[i] と nums[minIndex] を入れ替える
+
+//解答
+const nums = [7, 2, 9, 1, 5];
+for (let i = 0; i < nums.length; i++){
+	let minIndex = i;
+	for (let j = i + 1; j < nums.length; j++){
+		if (nums[j] < nums[minIndex]){
+			minIndex = j;
+		}
+	}
+	
+	if (minIndex !== i){
+		let temp = nums[i];
+		nums[i] = nums[minIndex];
+		nums[minIndex] = temp;
+	}
+}
+console.log(nums);

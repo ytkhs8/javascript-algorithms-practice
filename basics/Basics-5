@@ -1,0 +1,86 @@
+//配列の逆順(リバース)
+//問題①
+次の配列を 逆順にして新しい配列として出力 してください。
+const nums = [1, 3, 5, 7, 9];
+期待する出力：
+[9, 7, 5, 3, 1]
+
+//解答
+const nums = [1, 3, 5, 7, 9];
+const reversed = [];
+
+for (let i = nums.length - 1; i >= 0; i--){
+      reversed.push(nums[i]);
+}
+console.log(reversed);
+
+//重複削除
+//問題②
+//配列から重複を削除して、新しい配列を作ってください。
+使用する配列：
+const nums = [1, 3, 5, 3, 1, 7, 9, 5];
+期待する出力：
+[1, 3, 5, 7, 9]
+
+//解答のヒント
+//1.新しい配列を用意する
+//2.ループで nums を1つずつ見る
+//3.「その値がまだ新しい配列に入っていないか」をチェック
+//4.入っていなければ push する
+
+//解答
+const nums = [1, 3, 5, 3, 1, 7, 9, 5];
+let unique = [];
+for (let i = 0; i < nums.length; i++){
+     if (!unique.includes(nums[i])) {
+         unique.push(nums[i]);
+     } 
+}
+console.log(unique);
+
+//ソート（並び替え）
+//問題③
+//配列を昇順（小さい→大きい）に並び替えてください
+使用する配列：
+const nums = [7, 2, 9, 1, 5];
+期待する出力：
+[1, 2, 5, 7, 9]
+
+//解答のヒント
+//1.2重ループ（入れ替え方式）
+//2.if 文で大小判定
+//3.一時変数 temp で値を交換する
+//交換の例：
+let temp = nums[i];
+nums[i] = nums[j];
+nums[j] = temp;
+
+//私の解答
+const nums = [7, 2, 9, 1, 5];
+for (let i = 0; i < nums.length; i++){
+	for (let j = i + 1; j < nums.length; j++){
+		let temp = nums[i];
+		nums[i] = nums[j];
+		nums[j] = temp;
+	}
+}
+console.log(nums);
+
+//模範解答
+const nums = [7, 2, 9, 1, 5];
+
+for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+        if (nums[i] > nums[j]) {  // ★ここが超重要！
+            let temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+    }
+}
+
+console.log(nums);
+
+//私の解答の問題点
+//「比較の条件」がないため、常に swap（入れ替え）が実行されてしまう
+ ->大きい・小さいに関係なく入れ替えられてしまい、結果として 順番がぐちゃぐちゃになる

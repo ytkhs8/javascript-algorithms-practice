@@ -1,0 +1,53 @@
+//バブルソート（隣同士の比較）
+//問題
+//次の配列を 昇順に並べ替えてください。
+const nums = [7, 2, 9, 1, 5];
+//期待する出力：
+[1, 2, 5, 7, 9]
+
+//解答のヒント
+//① 二重ループを使う
+-> 外側：配列全体の周回数を決める
+   内側：隣同士を比較して必要なら入れ替え
+//② swap の条件
+if (nums[j] > nums[j + 1]) {
+    // swap!
+}
+
+//私の解答
+const nums = [7, 2, 9, 1, 5];
+for (let i = 0; i < nums.length; i++){
+	let minIndex = i;
+	for (let j = 0; j < nums.length - 1 - i; j++){
+		if (nums[j] < nums[minIndex]){
+			minIndex = j;
+		}
+	}
+
+	if (nums[j] > nums[j + 1]) {
+		let temp = nums[j];
+		nums[j] = nums[j + 1];
+		nums[j + 1] = temp;
+	}
+}
+console.log(nums);
+
+//模範解答
+const nums = [7, 2, 9, 1, 5];
+
+for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length - 1 - i; j++) {
+        if (nums[j] > nums[j + 1]) {
+            let temp = nums[j];
+            nums[j] = nums[j + 1];
+            nums[j + 1] = temp;
+        }
+    }
+}
+
+console.log(nums); // → [1, 2, 5, 7, 9]
+
+//私の解答の問題点
+問題点1: バブルソートには「minIndex」は不要
+問題点2: swap（入れ替え処理）が内側ループの中に入っていない
+問題点3: 内側ループの外にあるので、j という変数がスコープ外。
