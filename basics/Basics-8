@@ -1,0 +1,27 @@
+//降順バブルソート
+//問題
+//次の配列を 降順に並べ替えてください。
+const nums = [7, 2, 9, 1, 5];
+//期待する出力：
+[9, 7, 5, 2, 1]
+
+//解答のヒント
+//下の昇順ソートの比較条件を逆にするだけ。
+if (nums[j] > nums[j + 1]) {
+    swap…
+}
+
+//解答
+const nums = [7, 2, 9, 1, 5];
+
+for (let i = 0; i < nums.length; i++) {
+	for (let j = 0; j < nums.length -1 - i; j++) {
+		if (nums[j] < nums[j + 1]) {  // ★比較条件を逆にできている＝理解の証
+			let temp = nums[j];
+			nums[j] = nums[j + 1];
+			nums[j + 1] = temp;
+		}
+	}
+}
+
+console.log(nums);  // → [9, 7, 5, 2, 1]
