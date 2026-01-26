@@ -1,0 +1,42 @@
+//カスタムソート
+//問題①
+//次の配列を次の優先順位で並べ替えてください：
+const nums = [7, 2, 9, 1, 5, 8, 10, 3, 6, 4];
+//優先順位:
+1.	3の倍数（3, 6, 9, …）
+2.	それ以外の偶数（ただし3の倍数は除く）
+3.	それ以外の数（奇数で3の倍数でもない）
+それぞれのグループの中では「元の順番」を保つ
+//期待される出力：
+[9, 3, 6, 2, 8, 10, 4, 7, 1, 5]
+
+//解答のヒント
+① 配列を3つ用意する
+const multiplesOf3 = [];
+const evens = [];
+const others = [];
+② for で nums を1つずつ見る
+③ if / else if / else で分類する：
+
+//解答
+const nums = [7, 2, 9, 1, 5, 8, 10, 3, 6, 4];
+
+//グループ分けする空の配列を用意する
+const multiplesOf3 = [];
+const evens = [];
+const others = [];
+
+//3の倍数/その他の偶数/その他をグループ分けする
+for (i = 0; i < nums.length; i++) {
+	if (nums[i] % 3 === 0) {
+		multiplesOf3.push(nums[i]);
+	} else if (nums[i] % 2 === 0) {
+		evens.push(nums[i]);
+	} else {
+		others.push(nums[i]);
+	}
+}
+
+//その他の偶数とその他のnumsを最初の条件でグループ分けした3の倍数に結合し、result変数に代入する
+const result = multiplesOf3.concat(evens, others);
+console.log(result);

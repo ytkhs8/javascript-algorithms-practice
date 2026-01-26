@@ -1,0 +1,53 @@
+//カスタムソート
+//問題①
+//次の配列を奇数 → 偶数の順に並べ替えてください。
+const nums = [7, 2, 9, 1, 5, 8, 10, 3];
+//期待する出力：
+[7, 9, 1, 5, 3, 2, 8, 10]
+//解答のヒント
+//① 奇数は num % 2 !== 0
+    偶数は num % 2 === 0
+② const odd = [];
+const even = [];
+③ const result = odd.concat(even);
+
+//私の解答
+const nums = [7, 2, 9, 1, 5, 8, 10, 3];
+
+const odd = [];
+const even = [];
+
+for (let i = 0; i < nums.length; i++) {
+	if (nums[i] % 2 !== 0) {
+		odd.push(nums[i]);
+	} else { 
+		even.push(nums[i]);
+	}
+	const result = odd.concat(even); // ← ここがループの中！
+}
+
+console.log(result);
+
+//模範解答
+const nums = [7, 2, 9, 1, 5, 8, 10, 3];
+
+const odd = [];
+const even = [];
+
+for (let i = 0; i < nums.length; i++) {
+	if (nums[i] % 2 !== 0) {
+		odd.push(nums[i]);
+	} else {
+		even.push(nums[i]);
+	}
+}
+
+// ★ ここで2つの配列を合体させる
+const result = odd.concat(even);
+
+console.log(result);
+
+//私の解答の問題点
+//問題点1: ループの中で result を作っても毎回作り直すだけで意味がない。
+//さらに result はループの外では「存在しない」扱いになる.
+→ スコープ外エラー（ReferenceError） が出る。
