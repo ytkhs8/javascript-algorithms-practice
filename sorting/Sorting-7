@@ -1,0 +1,48 @@
+//カスタムソート
+//問題
+//次の配列を age が小さい順（昇順） に並べ替えてください。
+const people = [
+  { name: "Alice", age: 28 },
+  { name: "Bob", age: 22 },
+  { name: "Carol", age: 25 },
+  { name: "Dave", age: 30 }
+];
+//期待する出力：
+[
+  { name: "Bob", age: 22 },
+  { name: "Carol", age: 25 },
+  { name: "Alice", age: 28 },
+  { name: "Dave", age: 30 }
+]
+
+//解答の根幹
+//今までは数値 → nums[j] や 文字列 → words[j].lengthでしたが、
+今回は「オブジェクトの中のプロパティ」を比較します。
+
+//解答のヒント
+① 比較条件
+if (people[j].age > people[j + 1].age) {
+② swap は「オブジェクトごと」入れ替える
+let temp = people[j];
+people[j] = people[j + 1];
+people[j + 1] = temp;
+
+//解答
+const people = [
+  { name: "Alice", age: 28 },
+  { name: "Bob", age: 22 },
+  { name: "Carol", age: 25 },
+  { name: "Dave", age: 30 }
+];
+
+for (let i = 0; i < people.length; i++) {
+	for (let j = 0; j < people.length - 1 - i; j++) {
+		if (people[j].age > people[j + 1].age) {
+			let temp = people[j];
+			people[j] = people[j + 1];
+			people[j + 1] = temp;
+		}
+	}
+}
+
+console.log(people);

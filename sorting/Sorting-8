@@ -1,0 +1,66 @@
+//カスタムソート（複合条件ソート）
+//問題
+//次の配列を、以下のルールで並び替えてください。
+const people = [
+  { name: "Bob", age: 25 },
+  { name: "Alice", age: 25 },
+  { name: "Dave", age: 30 },
+  { name: "Carol", age: 22 },
+  { name: "Eve", age: 30 }
+];
+//ルール
+// 1.	age が小さい順（昇順）
+// 2. age が同じ場合は name をアルファベット順（昇順）
+//期待する出力：
+[
+  { name: "Carol", age: 22 },
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 25 },
+  { name: "Dave", age: 30 },
+  { name: "Eve", age: 30 }
+]
+
+//問題の考え方
+//① まず age を比較する
+//② age が同じ場合は name を比較する
+if (people[j].age > people[j + 1].age) {
+    // 入れ替え
+} else if (
+    people[j].age === people[j + 1].age &&
+    people[j].name > people[j + 1].name
+) {
+    // 入れ替え
+}
+
+//解答のヒント
+//① 文字列比較は > でOK（アルファベット順）
+//② === は「同じ age かどうか」を見るため
+//③ swap 処理は今までと完全に同じ
+
+//解答
+const people = [
+  { name: "Bob", age: 25 },
+  { name: "Alice", age: 25 },
+  { name: "Dave", age: 30 },
+  { name: "Carol", age: 22 },
+  { name: "Eve", age: 30 }
+];
+
+for (let i = 0; i < people.length; i++) {
+	for (let j = 0; j < people.length - 1 - i; j++) {
+		if (people[j].age > people[j + 1].age) {
+			let temp = people[j];
+			people[j] = people[j + 1];
+			people[j + 1] = temp;
+		} else if (
+			people[j].age === people[j + 1].age &&
+			people[j].name > people[j + 1].name
+		) {
+			let temp = people[j];
+			people[j] = people[j + 1];
+			people[j + 1] = temp;
+		}
+	}
+}
+
+console.log(people);

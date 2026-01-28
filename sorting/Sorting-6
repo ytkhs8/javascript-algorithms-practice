@@ -1,0 +1,28 @@
+//カスタムソート（難易度UP）
+//問題
+//次の配列を文字列の長さが短い順（昇順） に並べ替えてください。
+const words = ["apple", "kiwi", "banana", "fig", "orange"];
+//期待する出力：
+["fig", "kiwi", "apple", "banana", "orange"]
+//解答のヒント
+比較条件
+if (words[j].length > words[j + 1].length) {
+swap は今までと同じ
+let temp = words[j];
+words[j] = words[j + 1];
+words[j + 1] = temp;
+
+//解答
+const words = ["apple", "kiwi", "banana", "fig", "orange"];
+
+for (let i = 0; i < words.length; i++) {
+	for (let j = 0; j < words.length -1 - i; j++) {
+		if (words[j].length > words[j + 1].length) {
+			let temp = words[j];
+			words[j] = words[j + 1];
+			words[j + 1] = temp;
+		}
+	}
+}
+
+console.log(words);
