@@ -14,7 +14,7 @@ This repository is a personal learning log for algorithm practice using JavaScri
 
 ## Contents
 - Basic loops and conditions
-- Sorting algorithms (bubble sort, selection sort)
+- Sorting algorithms (bubble sort, selection sort, customize sort)
 - Array methods (map, filter, reduce)
 - Higher-order functions
 - Gradual progression to more complex problems
