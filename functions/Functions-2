@@ -1,0 +1,40 @@
+//関数の役割を体で覚える
+//問題②
+//配列の合計を返す関数を作ってください
+sumArray([1, 2, 3, 4]); // → 10
+//解答のヒント
+//入力：配列
+//出力：合計値
+//中身：for ループ + 足し算
+
+//私の解答
+function sumArray(arr) {
+    return function () {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return sum;
+    }
+}
+
+sumArray([1, 2, 3, 4]);
+
+//模範解答
+function sumArray(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+sumArray([1, 2, 3, 4]); // 10
+
+//解説
+関数を返す関数が必要なのは以下のとき
+// 1.設定を先に渡したい
+// 2.条件を固定したい
+// 3.後から何度も使いたい
+
+//今回の問題では、配列を渡してその合計値を返すだけなので、関数を返す必要はない。

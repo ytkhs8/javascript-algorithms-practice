@@ -1,0 +1,33 @@
+//sort比較関数の関数化
+//問題
+//今まで書いていた関数を条件を切り替えられる関数にする
+//従来のage昇順 + name昇順専用関数
+function compareByAgeAndName(a, b) {
+  if (a.age !== b.age) {
+    return a.age - b.age;
+  }
+  return a.name.localeCompare(b.name);
+}
+//解答
+function createCompareByAge(order) {
+  return function(a, b) {
+    if (order === "asc") {
+      return a.age - b.age;
+    } else {
+      return b.age - a.age;
+    }
+  };
+}
+
+people.sort(createCompareByAge("asc"));
+people.sort(createCompareByAge("desc"));
+
+//最適案
+function createCompareByAge(order = "asc") {
+  return function(a, b) {
+    if (order === "desc") {
+      return b.age - a.age;
+    }
+    return a.age - b.age; // デフォルトは昇順
+  };
+}
