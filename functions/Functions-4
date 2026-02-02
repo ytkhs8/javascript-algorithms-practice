@@ -1,0 +1,45 @@
+//Functions-3 のsumByCondition の問題をアロー関数で書く
+//問題
+//期待する出力:
+const nums = [1, 2, 3, 4, 5, 6];
+
+console.log(sumByCondition(nums, x => x % 2 === 0)); // 12
+console.log(sumByCondition(nums, x => x % 3 === 0)); // 9
+
+//解答のヒント
+const sumByCondition = (arr, conditionFn) => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (conditionFn(arr[i])) {
+      sum += arr[i];
+    }
+  }
+  return sum;
+};
+
+//解答
+const sumByCondition = (arr, conditionFn) => 
+  conditionFn(arr[i]) ? sum += arr[i];
+
+const nums = [1, 2, 3, 4, 5, 6];
+
+console.log(sumByCondition(nums, x => x % 2 === 0));
+console.log(sumByCondition(nums, x => x % 3 === 0));
+
+//模範解答
+const sumByCondition = (arr, conditionFn) => {
+  let sum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (conditionFn(arr[i])) {
+      sum += arr[i];
+    }
+  }
+
+  return sum;
+};
+
+const nums = [1, 2, 3, 4, 5, 6];
+
+console.log(sumByCondition(nums, x => x % 2 === 0)); // 12
+console.log(sumByCondition(nums, x => x % 3 === 0)); // 9
