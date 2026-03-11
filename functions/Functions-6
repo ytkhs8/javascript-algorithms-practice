@@ -1,0 +1,57 @@
+//mapByCondition問題
+//仕様
+function mapByCondition(arr, transformFn) {
+  // transformFn で各要素を変換して、新しい配列を返す
+}
+//期待する出力
+const nums = [1, 2, 3, 4];
+
+console.log(mapByCondition(nums, x => x * 2));
+// [2, 4, 6, 8]
+
+console.log(mapByCondition(nums, x => `num:${x}`));
+// ["num:1", "num:2", "num:3", "num:4"]
+//解答のヒント
+//ヒント①
+// •	filter は 条件に合うものだけ push
+// •	map は 必ず push（変換した値を push）
+
+// つまり、
+// •	if がなくなる（または不要）
+// •	push する中身が arr[i] じゃなくなる
+
+//私の解答
+const mapByCondition = (arr, transformFn)  => {
+	const result = [];
+	
+	for (let i = 0; i < arr.length; i++) {
+		result.push(transformFn(arr[i]));
+	}
+	
+	return result;
+}
+
+const nums = [1, 2, 3, 4];
+
+console.log(mapByCondition(nums, x => x * 2));
+
+console.log(mapByCondition(nums, x => `num:${x}`));
+
+//模範解答
+const mapByCondition = (arr, transformFn)  => {
+  const result = [];
+  
+  for (let i = 0; i < arr.length; i++) {
+    result.push(transformFn(arr[i]));
+  }
+  
+  return result;
+}
+
+const nums = [1, 2, 3, 4];
+
+mapByCondition(nums, x => x * 2);
+// [2, 4, 6, 8]
+
+mapByCondition(nums, x => `num:${x}`);
+// ["num:1", "num:2", "num:3", "num:4"]

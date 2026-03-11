@@ -1,0 +1,46 @@
+//FilterByCondition問題
+//数値の配列と「条件関数」を受け取り、その条件を満たす要素だけを集めた新しい配列を返す関数を作ってください。
+//仕様
+function filterByCondition(arr, conditionFn) {
+  // 実装
+}
+// •	arr：数値の配列
+// •	conditionFn：
+// 	•	引数を1つ受け取り
+// 	•	true / false を返す関数
+//期待する出力
+const nums = [1, 2, 3, 4, 5, 6];
+
+filterByCondition(nums, x => x % 2 === 0);
+// → [2, 4, 6]
+
+filterByCondition(nums, x => x > 3);
+// → [4, 5, 6]
+//解答のヒント
+//ヒント①
+// •	sumByCondition と 構造はほぼ同じ
+// •	違うのは「合計」ではなく「配列に追加する」点
+//ヒント②
+•	新しい配列を1つ用意する
+// •	if (conditionFn(arr[i])) がカギ
+//ヒント③
+// •	push() を使うかどうか、考えてみよう
+
+//解答
+const filterByCondition = (arr, conditionFn) => {
+	let filterArr = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (conditionFn(arr[i])) {
+            filterArr.push(arr[i]);
+        }
+    }
+
+    return filterArr;
+}
+
+const nums = [1, 2, 3, 4, 5, 6];
+
+console.log(filterByCondition(nums, x => x % 2 === 0));
+console.log(filterByCondition(nums, x => x > 3));
+

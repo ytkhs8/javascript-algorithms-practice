@@ -1,0 +1,23 @@
+//reduce問題
+//仕様
+// •	配列：[3, 7, 2, 9, 4, 6]
+// •	偶数だけ合計して 12 を出す
+// •	reduce を使う
+//ヒント
+// 	•	reduce は「合計の箱（累積値）」を持って進む
+nums.reduce((acc, x) => {
+  // acc は合計の箱
+  // x は今見てる要素
+  return acc; // 次の周の acc になる
+}, 0);
+//正解例
+const nums = [3, 7, 2, 9, 4, 6];
+
+const sumEven = nums.reduce((acc, x) => {
+  if (x % 2 === 0) {
+    return acc + x;
+  }
+  return acc;
+}, 0);
+
+console.log(sumEven); // 12
