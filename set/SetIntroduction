@@ -1,0 +1,41 @@
+//Set入門問題
+//Setを使わずに配列から重複を削除してください
+//期待する出力: [1,2,3,4]
+//解答のヒント
+//freq と同じように、重複を削除するための箱を用意する
+const nums = [1,2,1,3,2,4];
+
+//変数dupl は重複の意味のduplicateの頭文字をとった
+const dupl = {};
+
+for (let i = 0; i < nums.length; i++) {
+     const n = nums[i];
+     dupl[n] = true;
+}
+
+const result = [];
+
+if (const key in result) {
+
+console.log(result);
+
+//模範解答
+const nums = [1,2,1,3,2,4];
+
+const dupl = {};
+
+for (let i = 0; i < nums.length; i++) {
+     const n = nums[i];
+     dupl[n] = true;
+}
+
+const result = [];
+
+for (const key in dupl) {
+    result.push((key));
+}
+
+console.log(result);
+
+//間違えたポイント
+//やりたいのはdupl のキーを取り出して配列に入れることでした。

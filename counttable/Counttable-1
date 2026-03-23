@@ -1,0 +1,47 @@
+//counttable問題
+//配列の中の最も多く出現する数字を見つけてください。
+//期待する出力
+1
+//私の解答
+const nums = [1,2,1,3,2,1];
+
+const freq = {};
+
+for (let i = 0; i < nums.length; i++) {
+	const n = nums[ i ];
+
+	if (!freq[n]) {
+	   freq[n] = 0;
+	}
+
+	freq[n]++;
+}
+
+console.log(freq);
+
+//模範解答
+const nums = [1,2,1,3,2,1];
+
+const freq = {};
+
+for (let i = 0; i < nums.length; i++) {
+	const n = nums[i];
+
+	if (!freq[n]) {
+	   freq[n] = 0;
+	}
+
+	freq[n]++;
+}
+
+let maxCount = 0;
+let mostFrequent = null;
+
+for (const key in freq) {
+	if (freq[key] > maxCount) {
+		maxCount = freq[key];
+		mostFrequent = key;
+	}
+}
+
+console.log(mostFrequent);
